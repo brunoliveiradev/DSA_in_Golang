@@ -1,0 +1,11 @@
+# Ignore unnecessary Go files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore Goland IDE files
+.idea/
+
+# Ignore VS Code files
+.vscode/
