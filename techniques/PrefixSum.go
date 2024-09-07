@@ -1,7 +1,5 @@
 package techniques
 
-import "fmt"
-
 // AnswerQueries processes a list of queries on a given array of integers and determines
 // if the sum of elements within specified subarrays is less than a given limit.
 //
