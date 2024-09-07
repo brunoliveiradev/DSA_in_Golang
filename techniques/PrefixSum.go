@@ -1,5 +1,7 @@
 package techniques
 
+import "fmt"
+
 // AnswerQueries processes a list of queries on a given array of integers and determines
 // if the sum of elements within specified subarrays is less than a given limit.
 //
@@ -39,4 +41,39 @@ func AnswerQueries(nums []int, queries [][]int, limit int) []bool {
 	}
 
 	return result
+}
+
+// WaysToSplitArray finds the number of valid splits in a given array of integers.
+// A valid split occurs if the sum of the first section (leftSection) is greater than or equal
+// to the sum of the second section (rightSection). The right section must contain at least one element.
+//
+// Time Complexity:
+//   - O(n): The function iterates over the array twice - once to compute the total sum and once to calculate the valid splits.
+//
+// Space Complexity:
+//   - O(1): The function uses a constant amount of extra space (for leftSection, total, ans).
+//
+// Returns:
+//   - An integer representing the number of valid splits in the array.
+func WaysToSplitArray(nums []int) int {
+	ans, leftSection, total := 0, 0, 0
+
+	// Step 1: Calculate the total sum of the array.
+	for _, num := range nums {
+		total += num
+	}
+
+	// Step 2: Iterate through the array to calculate the left and right sections for each split.
+	// For each index i, the left section includes all elements up to i,
+	// and the right section includes all elements after i.
+	for i := 0; i < len(nums)-1; i++ {
+		leftSection += nums[i]
+		rightSection := total - leftSection
+
+		if leftSection >= rightSection {
+			ans++
+		}
+	}
+
+	return ans
 }
