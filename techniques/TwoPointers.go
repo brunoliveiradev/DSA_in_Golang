@@ -1,6 +1,8 @@
-package stringsdsa
+package techniques
 
-import "fmt"
+import (
+	"log"
+)
 
 // TwoPointers checks if the given string is a palindrome using the two pointers technique.
 // This technique compares characters from the beginning and end of the string, moving
@@ -16,12 +18,12 @@ func TwoPointers(s string) bool {
 
 	for left < right {
 		if s[left] != s[right] {
-			fmt.Printf("%s is not a Palindrome\n", s)
+			log.Printf("%s is not a Palindrome\n", s)
 			return false
 		}
 		left++
 		right--
 	}
-	fmt.Printf("%s is a Palindrome \n", s)
+	log.Printf("%s is a Palindrome \n", s)
 	return true
 }
