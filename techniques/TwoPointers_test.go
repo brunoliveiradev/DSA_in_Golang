@@ -1,4 +1,4 @@
-package stringsdsa
+package techniques
 
 import (
 	"testing"
