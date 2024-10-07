@@ -9,8 +9,7 @@ package arrays
 // Space Complexity: O(1), as the function modifies the input array in place and does not use any additional space
 // proportional to the input size.
 func RunningSum1dArray(nums []int) []int {
-	var runningSum int = 0
-
+	runningSum := 0
 	// Iterate through the array to calculate the running sum
 	for i, num := range nums {
 		runningSum += num
