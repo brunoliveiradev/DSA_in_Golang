@@ -2,6 +2,7 @@ package stringsdsa
 
 // ReverseWords reverses the characters of each word in a string s, preserving word order and spaces.
 // The input string does not contain leading or trailing spaces.
+// Space and Time Complexity: O(n) - where n is the len of s, and also because of an extra slice to revert
 func ReverseWords(s string) string {
 	runes := []rune(s)
 	start := 0
