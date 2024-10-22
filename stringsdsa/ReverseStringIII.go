@@ -4,18 +4,22 @@ package stringsdsa
 // The input string does not contain leading or trailing spaces.
 // Space and Time Complexity: O(n) - where n is the len of s, and also because of an extra slice to revert
 func ReverseWords(s string) string {
-	runes := []rune(s)
-	start := 0
+	if len(s) == 1 {
+		return s
+	}
 
-	for start < len(runes) {
-		// Find the end of the current word
-		end := findWordEnd(runes, start)
+	runes := []rune(s)
+	wordStartIndex := 0
+
+	for wordStartIndex < len(runes) {
+		// Find the wordEndIndex of the current word
+		wordEndIndex := findWordEnd(runes, wordStartIndex)
 
 		// Reverse the current word
-		reverse(runes, start, end-1)
+		reverseWord(runes, wordStartIndex, wordEndIndex-1)
 
 		// Move to the next word (skip the space)
-		start = end + 1
+		wordStartIndex = wordEndIndex + 1
 	}
 
 	return string(runes)
@@ -30,8 +34,8 @@ func findWordEnd(runes []rune, start int) int {
 	return end
 }
 
-// reverse reverses the elements in the runes slice from index start to index end.
-func reverse(runes []rune, start, end int) {
+// reverseWord reverses the elements in the runes slice from index start to index end.
+func reverseWord(runes []rune, start, end int) {
 	for start < end {
 		runes[start], runes[end] = runes[end], runes[start]
 		start++
