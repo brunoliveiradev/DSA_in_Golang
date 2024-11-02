@@ -16,23 +16,18 @@ func ReverseOnlyLetters(s string) string {
 	left, right := 0, len(s)-1
 
 	for left < right {
-		println("left: ", left, string(letter[left]), "right: ", string(letter[right]))
-
-		// Move left pointer if not a letter
 		if !unicode.IsLetter(letter[left]) {
+			// Move left pointer if not a letter
 			left++
-			continue
-		}
-		// Move right pointer if not a letter
-		if !unicode.IsLetter(letter[right]) {
+		} else if !unicode.IsLetter(letter[right]) {
+			// Move right pointer if not a letter
 			right--
-			continue
+		} else {
+			// Swap letters at left and right pointers
+			letter[left], letter[right] = letter[right], letter[left]
+			left++
+			right--
 		}
-
-		// Swap letters at left and right pointers
-		letter[left], letter[right] = letter[right], letter[left]
-		left++
-		right--
 	}
 
 	return string(letter)
