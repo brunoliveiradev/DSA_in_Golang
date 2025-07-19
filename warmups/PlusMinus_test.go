@@ -1,4 +1,4 @@
-package arrays
+package warmups
 
 import (
 	"bytes"
