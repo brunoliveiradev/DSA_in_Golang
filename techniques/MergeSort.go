@@ -62,10 +62,8 @@ func merge(inputArray []int32, leftHalf []int32, rightHalf []int32) {
 	// i for leftHalf, j for rightHalf, k for inputArray
 	var i, j, k int
 
-	// o objetivo deste for é comparar os elementos de ambos os "half" array, e ir inserindo em ordem ASC do menor para o maior
-	// Merge elements from leftHalf and rightHalf in order
+	// Compare elements from both halves of the array and insert/merge them from smallest to largest
 	for i < leftSize && j < rightSize {
-		// compare the elements, and add the smallest element to the mergedArray
 		if leftHalf[i] <= rightHalf[j] {
 			inputArray[k] = leftHalf[i]
 			i++
