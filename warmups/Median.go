@@ -16,9 +16,8 @@ import "DSA/techniques"
 //
 //	int32: The median value of the input slice.
 //
-// Note:
-//
-//	This function sorts the input slice in place using bubble sort, which will modify the original data.
+// Time Complexity: O(n log n), where n is the length of the input slice due to sorting.
+// Space Complexity: O(n) for the sorting algorithm, as is use merge sort which requires additional space for the temporary arrays.
 func FindMedian(arr []int32) int32 {
 	n := len(arr)
 	if n == 1 {
